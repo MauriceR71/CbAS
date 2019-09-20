@@ -279,7 +279,7 @@ def partition_data(X, y, percentile=40, train_size=1000, random_state=1, return_
     print(y_percentile)
     print("idx")
     print(idx)
-    rand_idx = np.random.choice(idx, size=0.9*len(idx), replace=False)
+    rand_idx = np.random.choice(idx, size=int(0.9*len(idx)), replace=False)
     X_train = X[rand_idx]
     y_train = y[rand_idx]
     if return_test:
