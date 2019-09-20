@@ -338,14 +338,14 @@ def get_experimental_X_y_Hydrolase(random_state=1, train_size=150, return_test=F
     max_cat = np.amax(y_gt)
     y_gt = np.multiply(y_gt, 1.0/max_cat)
     if return_test:
-        X_train, gt_train, X_test, gt_test = partition_data(X, y_gt, percentile=95, train_size=3000, random_state=random_state, return_test=return_test)
+        X_train, gt_train, X_test, gt_test = partition_data(X, y_gt, percentile=25, train_size=3000, random_state=random_state, return_test=return_test)
         np.random.seed(random_state)
         gt_var = 0.01
         y_train = gt_train + np.random.randn(*gt_train.shape) * gt_var
         y_test = gt_test + np.random.randn(*gt_test.shape) * gt_var
         return X_train, y_train, gt_train, X_test, y_test, gt_test
     else:
-        X_train, gt_train = partition_data(X, y_gt, percentile=95, train_size=3000, random_state=random_state, return_test=return_test)
+        X_train, gt_train = partition_data(X, y_gt, percentile=25, train_size=3000, random_state=random_state, return_test=return_test)
         np.random.seed(random_state)
         gt_var = 0.01
         y_train = gt_train + np.random.randn(*gt_train.shape) * gt_var
