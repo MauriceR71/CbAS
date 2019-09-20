@@ -340,9 +340,12 @@ def get_experimental_X_y_Hydrolase(random_state=1, train_size=150, return_test=F
     y_gt = np.array(df["medianBrightness"])
     print("341", y_gt)
     y_gt = y_gt.astype(np.float)
+    print("343", y_gt)
     y_gt = np.log10(y_gt)
+    print("345", y_gt)
     max_cat = np.amax(y_gt)
     y_gt = np.multiply(y_gt, 1.0/max_cat)
+    print("348", y_gt)
     if return_test:
         X_train, gt_train, X_test, gt_test = partition_data(X, y_gt, percentile=40, train_size=3000, random_state=random_state, return_test=return_test)
         np.random.seed(random_state)
